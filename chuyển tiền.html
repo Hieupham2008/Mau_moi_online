@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <template>
+        <form @submit.prevent="convert">
+          <div>
+            <label>value</label>
+            <input v-model.number="value" />
+          </div>
+          <div>
+            <label>from currency</label>
+            <select v-model="fromCurrency">
+              <option v-for="c of fromCurrencies" :key="c">{{ c }}</option>
+            </select>
+          </div>
+          <div>
+            <label>to currency</label>
+            <select v-model="toCurrency">
+              <option v-for="c of toCurrencies" :key="c">{{ c }}</option>
+            </select>
+          </div>
+          <button type="submit">convert</button>
+        </form>
+        <div>
+          {{ value }} {{ fromCurrency }} is {{ result.toFixed(2) }} {{ toCurrency }}
+        </div>
+      </template>
+      <script>
+      const currencies = ["EUR", "USD", "CAD"];
+      export default {
+        name: "App",
+        data() {
+          return {
+            value: 0,
+            fromCurrency: "",
+            toCurrency: "",
+            currencies,
+            result: 0,
+          };
+        },
+        computed: {
+          fromCurrencies() {
+            const { toCurrency, currencies } = this;
+            return currencies.filter((c) => c !== toCurrency);
+          },
+          toCurrencies() {
+            const { fromCurrency, currencies } = this;
+            return currencies.filter((c) => c !== fromCurrency);
+          },
+          formValid() {
+            const { value, fromCurrency, toCurrency } = this;
+            return +value >= 0 && fromCurrency && toCurrency;
+          },
+        },
+        methods: {
+          async convert() {
+            const { fromCurrency, toCurrency, value, formValid } = this;
+            if (!formValid) {
+              return;
+            }
+            const res = await fetch(
+              `https://api.exchangeratesapi.io/latest?base=${fromCurrency}`
+            );
+            const { rates } = await res.json();
+            this.result = value * rates[toCurrency];
+          },
+        },
+      };
+      </script>
+</body>
+</html>

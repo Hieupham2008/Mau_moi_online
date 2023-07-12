@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang web sứ mệnh của phạm trung hiếu</title>
+    <style>
+        body{
+    background: url(./20FB323D-9837-43F0-93EC-970FBABF5177.jpeg);
+    background-size: cover;
+    background-position-y: 160px;
+    font-size: 46px;
+        }
+    div{
+        background-image:url(./IMG_20230608_193205.jpg)
+    }
+#wrapper{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:burlywood;
+}
+#form-login{
+    max-width: 400px;
+    background: rgba(84, 246, 168, 0.8);
+    flex-grow: 1;
+    padding: 90px 90px 120px;
+    box-shadow: 0px 0px 47px 22px rgba(23, 121, 134, 0.8);
+}
+.form-heading{
+    font-size: 40px;
+    color: #1c145a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form-group{
+    border-bottom: 45px solid #26a95276;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+}
+.form-group i{
+    color: #60cdee;
+    font-size: 44px;
+    padding-top: 34px;
+    padding-right: 60px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form-input{
+    background: transparent;
+    border: 60;
+    outline: 30;
+    color: #108c90;
+    flex-grow: 174;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:45px;
+}
+.form-input::placeholder{
+    color: #9fa598;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:45px;
+    height:100px;
+}
+#eye i{
+    padding-right: 0;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form-submit{
+    background:#ac175d;
+    border: 10px solid #5a19a4;
+    color: #51cb0f;
+    width: 50%;
+    text-transform: uppercase;
+    padding: 20px 50px;
+    transition: 0.25s ease-in-out;
+    margin-top: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:40px;
+}
+
+.form-submit:hover{
+    border: 10px solid #54a0ff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#54a0ff;
+    
+}
+a{
+    background-color:coral;
+    font-size:45px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align:center;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <form action="" id="login-form">
+            <h1 class="form-heading"> Đăng nhập tài khoản </h1>
+            <div class="form-group">
+                <i class="fa fa-user"></i>
+                <input type="text" class="form-input" placeholder="Email của bạn">
+            </div>
+            <div class="form-group">
+                <i class="fas fa-key"></i>
+                <input type="password" class="form-input" placeholder="Password của bạn">
+                <div id="eye">
+                    <i class="far fa-eye"></i>
+                </div>
+            </div>
+            <input type="submit" value="Xác nhận thông tin" class="form-submit" >
+        </form>
+        <a></a>
+    </div>
+</body>
+</html>
